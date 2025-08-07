@@ -24,6 +24,25 @@ A modern Next.js application demonstrating real-time voice AI integration with *
 
 ## 📦 Installation
 
+### Prerequisites
+
+**Install Bun** (if not already installed):
+```bash
+# macOS/Linux
+curl -fsSL https://bun.sh/install | bash
+
+# Windows
+powershell -c "irm bun.sh/install.ps1 | iex"
+
+# Or using npm
+npm install -g bun
+
+# Verify installation
+bun --version
+```
+
+### Setup
+
 1. **Clone the repository**
    ```bash
    git clone <your-repo-url>
