@@ -123,7 +123,7 @@ export default function VapiDemo() {
 
         {/* Instructions */}
         <div className="mt-8 text-center text-gray-400">
-          <p className="mb-2">Click "Start Call" to begin talking with Alex</p>
+          <p className="mb-2">Click &quot;Start Call&quot; to begin talking with Alex</p>
           <p className="text-sm">Make sure your microphone permissions are enabled</p>
         </div>
       </div>

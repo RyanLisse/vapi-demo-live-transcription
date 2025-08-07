@@ -3,8 +3,9 @@ import React from "react";
 import useVapi from "@/hooks/use-vapi";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, PhoneOff, Loader, Bot } from "lucide-react";
+import { Phone, PhoneOff, Loader, Bot, Settings } from "lucide-react";
 import Transcriber from "@/components/transcriber";
+import Link from "next/link";
 
 export default function Home() {
   const { 
@@ -27,6 +28,16 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-4">
       <div className="max-w-4xl mx-auto">
+        {/* Settings Link */}
+        <div className="flex justify-end mb-4">
+          <Link href="/settings">
+            <Button variant="outline" size="sm" className="flex items-center space-x-2">
+              <Settings className="w-4 h-4" />
+              <span>Settings</span>
+            </Button>
+          </Link>
+        </div>
+        
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             VAPI Demo with Live Transcription
@@ -142,7 +153,7 @@ export default function Home() {
                         </p>
                         <ol className="text-xs text-red-700 dark:text-red-400 list-decimal list-inside space-y-1">
                           <li>Go to your VAPI Dashboard</li>
-                          <li>Copy the Public Key (should start with "pk_")</li>
+                          <li>Copy the Public Key (should start with &quot;pk_&quot;)</li>
                           <li>Update NEXT_PUBLIC_VAPI_PUBLIC_KEY in your .env file</li>
                           <li>Restart the development server</li>
                         </ol>

@@ -13,6 +13,8 @@ const useVapi = () => {
   const [volumeLevel, setVolumeLevel] = useState(0);
   const [isSessionActive, setIsSessionActive] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [isStarting, setIsStarting] = useState(false);
+  const [lastError, setLastError] = useState<string>("");
   const [assistantName, setAssistantName] = useState<string>("");
   const [currentAssistantId, setCurrentAssistantId] = useState<string>(defaultAssistantId);
   const [availableAssistants, setAvailableAssistants] = useState<Array<{id: string, name: string, llm: any}>>([]);
@@ -85,10 +87,13 @@ const useVapi = () => {
 
       vapiInstance.on("call-start", () => {
         setIsSessionActive(true);
+        setIsStarting(false);
+        setLastError("");
       });
 
       vapiInstance.on("call-end", () => {
         setIsSessionActive(false);
+        setIsStarting(false);
         setConversation([]); // Reset conversation on call end
       });
 
@@ -190,6 +195,8 @@ const useVapi = () => {
         console.log("🛑 Stopping VAPI call...");
         await vapiRef.current.stop();
       } else {
+        setIsStarting(true);
+        setLastError("");
         console.log("🚀 Starting VAPI call with:");
         console.log("- Public Key:", publicKey ? `${publicKey.substring(0, 8)}...${publicKey.substring(-8)}` : "MISSING");
         console.log("- Assistant ID:", currentAssistantId);
@@ -197,6 +204,8 @@ const useVapi = () => {
         
         if (!vapiRef.current) {
           console.error("❌ VAPI instance not initialized");
+          setLastError("VAPI instance not initialized");
+          setIsStarting(false);
           return;
         }
         
@@ -211,6 +220,8 @@ const useVapi = () => {
         response: err?.response,
         stack: err?.stack
       });
+      setLastError(err?.message || "Failed to start call");
+      setIsStarting(false);
     }
   };
 
@@ -259,6 +270,9 @@ const useVapi = () => {
     currentAssistantId,
     availableAssistants,
     selectAssistant,
+    fetchAvailableAssistants,
+    isStarting,
+    lastError,
   };
 };
 

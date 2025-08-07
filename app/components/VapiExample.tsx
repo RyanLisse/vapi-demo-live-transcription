@@ -13,9 +13,9 @@ export const VapiExample: React.FC = () => {
         <h3>How it works:</h3>
         <ol>
           <li>Make sure you have set up your environment variables</li>
-          <li>Click "Start Call" to begin the conversation</li>
+          <li>Click &quot;Start Call&quot; to begin the conversation</li>
           <li>Speak naturally with the assistant</li>
-          <li>Click "End Call" when finished</li>
+          <li>Click &quot;End Call&quot; when finished</li>
         </ol>
       </div>
     </div>
