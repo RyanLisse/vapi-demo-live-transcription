@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "bun run next dev",
-    "build": "bun run next build",
-    "start": "bun run next start",
-    "lint": "bun run next lint",
-    "make": "pkill -f 'next dev' || true && pkill -f 'node.*3000' || true && lsof -ti:3000 | xargs kill -9 || true && bun run dev"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "make": "pkill -f 'next dev' || true && pkill -f 'node.*3000' || true && lsof -ti:3000 | xargs kill -9 || true && npm run dev"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
+    "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-slot": "^1.2.3",
     "@vapi-ai/web": "^2.3.8",
