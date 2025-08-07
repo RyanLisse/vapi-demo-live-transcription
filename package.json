@@ -3,18 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "bun run next dev",
+    "build": "bun run next build",
+    "start": "bun run next start",
+    "lint": "bun run next lint",
+    "make": "pkill -f 'next dev' || true && pkill -f 'node.*3000' || true && lsof -ti:3000 | xargs kill -9 || true && bun run dev"
   },
   "dependencies": {
-    "@vapi-ai/web": "^2.0.0",
+    "@radix-ui/react-avatar": "^1.1.10",
+    "@radix-ui/react-select": "^2.2.5",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@vapi-ai/web": "^2.3.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "dotenv": "16.4.5",
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.536.0",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
     "simplex-noise": "^4.0.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7",
     "three": "^0.166.1"
   },
   "devDependencies": {

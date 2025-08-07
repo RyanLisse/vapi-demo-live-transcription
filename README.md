@@ -1,45 +1,123 @@
-# VapiBlocks Next14 Tailwind Starter
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) customized to display VapiBlocks UI components. 
+# 🎙️ VAPI Demo with Live Transcription
 
-The following pre-defined files are needed to make Orb demo work:
-- hooks/use-vapi.ts
-- components/orb.tsx
-- .env
+A modern Next.js application demonstrating real-time voice AI integration with **VAPI** (Voice AI Platform). Features beautiful live transcription, dynamic assistant selection, and responsive UI components.
 
-**Edit the .env file** with your public key & assistantId from the [Vapi Dashboard]([vapi.ai/dashboard).
+![VAPI Demo](https://img.shields.io/badge/VAPI-Voice%20AI-blue) ![Next.js](https://img.shields.io/badge/Next.js-14-black) ![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38bdf8)
 
+## ✨ Features
 
-## Getting Started
+- **🎯 Dynamic Assistant Selection** - Choose from multiple AI assistants with different models
+- **📝 Live Transcription** - Beautiful real-time conversation display with VAPIBlocks design
+- **🎤 Voice Controls** - Simple start/stop call buttons with status indicators  
+- **🔄 Real-time Updates** - Dynamic assistant loading from VAPI API
+- **🎨 Modern UI** - Responsive design with Tailwind CSS and shadcn/ui components
+- **⚡ Fast Performance** - Built with Bun and optimized for speed
 
-Edit the .env file then, run the development server:
+## 🛠️ Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript  
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Voice AI**: VAPI Web SDK
+- **Package Manager**: Bun
+- **Icons**: Lucide React
+
+## 📦 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd hgg-vapi-demo
+   ```
+
+2. **Install dependencies**
+   ```bash
+   bun install
+   ```
+
+3. **Configure environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Update `.env` with your VAPI credentials:
+   ```bash
+   # Public key for client-side VAPI web SDK  
+   NEXT_PUBLIC_VAPI_PUBLIC_KEY="your-public-key-here"
+   NEXT_PUBLIC_VAPI_ASSISTANT_ID="your-default-assistant-id"
+   
+   # Private key for server-side API calls (keep secret!)
+   VAPI_PRIVATE_KEY="your-private-key-here"
+   ```
+
+4. **Run the development server**
+   ```bash
+   bun run make
+   ```
+
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🔑 Getting VAPI Credentials
+
+1. **Sign up** at [dashboard.vapi.ai](https://dashboard.vapi.ai)
+2. **Create an Assistant** or use existing ones
+3. **Get your API Keys**:
+   - **Public Key**: Safe for client-side use (starts with your org ID)
+   - **Private Key**: For server-side API calls (keep secret!)
+4. **Copy Assistant IDs** from your dashboard
+
+## 🎮 Usage
+
+1. **Select an Assistant** - Choose from the dropdown (dynamically loaded from your VAPI account)
+2. **Grant Microphone Permission** - Required for voice calls
+3. **Start Conversation** - Click the green "Start Call" button
+4. **View Live Transcription** - See real-time conversation in the beautiful interface
+5. **End Call** - Click the red "End Call" button
+
+## 📁 Project Structure
+
+```
+├── app/
+│   ├── api/assistants/route.ts    # Backend API for fetching assistants
+│   ├── page.tsx                   # Main demo page with call controls
+│   └── globals.css                # Global styles
+├── components/
+│   ├── transcriber.tsx            # VAPIBlocks-inspired transcription UI
+│   └── ui/                        # shadcn/ui components
+├── hooks/
+│   └── use-vapi.ts               # VAPI integration hook
+└── lib/
+    └── utils.ts                  # Utility functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Available Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Start development server (kills existing processes)
+bun run make
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Standard Next.js commands with Bun
+bun run dev     # Development server
+bun run build   # Production build  
+bun run start   # Production server
+bun run lint    # ESLint check
+```
 
-## Learn More
+## 🔒 Security Notes
 
-To learn more about Next.js, take a look at the following resources:
+- **Environment Variables**: All sensitive keys in `.env` (gitignored)
+- **Public vs Private**: Proper separation of client/server credentials
+- **API Routes**: Server-side assistant fetching for security
+- **No Secrets in Client**: Private keys never exposed to browser
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Design Philosophy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Clean & Modern**: Minimal interface focused on conversation
+- **VAPIBlocks Inspired**: Following established design patterns
+- **Responsive**: Works on all screen sizes
+- **Accessible**: Proper ARIA labels and keyboard navigation
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Built with ❤️ using VAPI, Next.js, and modern web technologies.
